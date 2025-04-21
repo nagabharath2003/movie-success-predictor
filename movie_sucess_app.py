@@ -80,27 +80,22 @@ with tab2:
     # ✅ Get user input
     budget = st.number_input("💰 Budget (in $)", value=0)
     runtime = st.number_input("⏱️ Runtime (min)", value=0) 
-    popularity = st.number_input("🔥 Popularity", value=0) 
-    vote_average=st.number_input('vote_average',value=0)
-    vote_count=st.number_input('vote_count',value=0)
-    release_year=st.number_input("release_year" ,value=0)
+    popularity = st.number_input("🔥 Popularity", value=0)
 
     
     if st.button("🚀 Predict Success"):
         input_data = {
             "budget": budget,
             "runtime": runtime,
-            "popularity": popularity,
-            "vote_average":vote_average,
-            "vote_count":vote_count,
-            "release_year":release_year    
+            "popularity": popularity
+         
         }
 
         input_df = pd.DataFrame([input_data])
         st.write("🔍 Input Preview:", input_df)
 
         try:
-            features = ['budget','runtime',"popularity",'vote_average','vote_count',"release_year"]
+            features = ['budget','runtime',"popularity"]
             input_df = input_df[features].fillna(0)
             prediction = model.predict(input_df)[0]
             st.success("🎯 Prediction: " + ("✅ Successful" if prediction == 1 else "❌ Not Successful"))
