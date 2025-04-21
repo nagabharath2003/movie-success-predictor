@@ -90,9 +90,7 @@ with tab1:
             st.pyplot(plt)
 
 with tab2:
-     st.subheader("🎬 Movie Success Prediction")
-
-    movies_df=pd.read_csv(r"tmbd_movies_df.csv")
+    st.subheader("🎬 Movie Success Prediction")
     # ✅ Get user input
     budget = st.number_input("💰 Budget (in $)", value=0)
     popularity = st.number_input("🔥 Popularity", value=0)
