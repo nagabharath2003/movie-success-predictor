@@ -10,7 +10,22 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report, confusion_matrix,roc_curve
 model=joblib.load("movie_success_model.pkl")
 st.set_page_config(page_title="Movie Success Predictor", layout="wide")
+def set_background(image_path):
+    with open(image_path, "rb") as image_file:
+        encoded_image = base64.b64encode(image_file.read()).decode()
 
+    st.markdown(
+        f"""
+        <style>
+        .stApp {{
+            background-image: url("data:image/bmp;base64,{encoded_image}");
+            background-size: cover;
+        }}
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+set_background("assets/pexels-photo-8263325.webp")
 st.title("🎬 Movie Success Prediction App")
 st.markdown("**Predict whether a movie will be successful based on key features.**")
 
