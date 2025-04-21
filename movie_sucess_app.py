@@ -9,7 +9,10 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report, confusion_matrix,roc_curve
 model=joblib.load("movie_success_model.pkl")
+
+
 st.set_page_config(page_title="Movie Success Predictor", layout="wide")
+
 def set_background(image_path):
     with open(image_path, "rb") as image_file:
         encoded_image = base64.b64encode(image_file.read()).decode()
@@ -26,10 +29,12 @@ def set_background(image_path):
         unsafe_allow_html=True
     )
 set_background("assets/pexels-photo-8263325.webp")
+
+
 st.title("🎬 Movie Success Prediction App")
 st.markdown("**Predict whether a movie will be successful based on key features.**")
 
-tab1, tab2, tab3= st.tabs(["📥 Database", "📊 Prediction Interface","📊 Graphs"])
+tab1,tab2= st.tabs(["📥 Database","📊 Graphs"])
 
 with tab1:
     @st.cache_data
@@ -89,37 +94,39 @@ with tab1:
             plt.show()
             st.pyplot(plt)
 
-with tab2:
     st.subheader("🎬 Movie Success Prediction")
-    # ✅ Get user input
+
     budget = st.number_input("💰 Budget (in $)", value=0)
     popularity = st.number_input("🔥 Popularity", value=0)
-    runtime = st.number_input("⏱️ Runtime (min)", value=0) 
+    runtime = st.number_input("⏱️ Runtime (min)", value=0)
     
-
 
     if st.button("🚀 Predict Success"):
         input_data = {
             "budget": budget,
             "popularity": popularity,
-            "runtime": runtime,
-                
+            "popularity": popularity
         }
 
         input_df = pd.DataFrame([input_data])
         st.write("🔍 Input Preview:", input_df)
 
         try:
+            # ✅ Load features and model
             features = joblib.load("features.pkl")
             model = joblib.load("movie_success_model.pkl")
+
+            # ✅ Reorder input to match training
             input_df = input_df[features].fillna(0)
+
             prediction = model.predict(input_df)[0]
             st.success("🎯 Prediction: " + ("✅ Successful" if prediction == 1 else "❌ Not Successful"))
+
         except Exception as e:
             st.error(f"Prediction failed: {e}")
- 
 
-with tab3:
+    
+with tab2:
     st.header("🎬 Movie Genre Visualizations")
     col1, col2 = st.columns(2)
 
@@ -150,6 +157,18 @@ with tab3:
             plt.ylabel("Number of Movies")
             plt.show()
             st.pyplot(plt)
+
+    
+
+
+
+
+    
+    
+
+
+
+
 
     
 
