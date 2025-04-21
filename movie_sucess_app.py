@@ -90,32 +90,36 @@ with tab1:
             st.pyplot(plt)
 
 with tab2:
-    st.subheader("🎬 Movie Success Prediction")
+     st.subheader("🎬 Movie Success Prediction")
 
+    movies_df=pd.read_csv(r"tmbd_movies_df.csv")
     # ✅ Get user input
     budget = st.number_input("💰 Budget (in $)", value=0)
-    runtime = st.number_input("⏱️ Runtime (min)", value=0) 
     popularity = st.number_input("🔥 Popularity", value=0)
-
+    runtime = st.number_input("⏱️ Runtime (min)", value=0) 
     
+
+
     if st.button("🚀 Predict Success"):
         input_data = {
             "budget": budget,
+            "popularity": popularity,
             "runtime": runtime,
-            "popularity": popularity
-         
+                
         }
 
         input_df = pd.DataFrame([input_data])
         st.write("🔍 Input Preview:", input_df)
 
         try:
-            features = ['budget','runtime',"popularity"]
+            features = joblib.load("features.pkl")
+            model = joblib.load("movie_success_model.pkl")
             input_df = input_df[features].fillna(0)
             prediction = model.predict(input_df)[0]
             st.success("🎯 Prediction: " + ("✅ Successful" if prediction == 1 else "❌ Not Successful"))
         except Exception as e:
             st.error(f"Prediction failed: {e}")
+ 
 
 with tab3:
     st.header("🎬 Movie Genre Visualizations")
