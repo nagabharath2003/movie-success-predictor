@@ -19,7 +19,7 @@ tab1, tab2, tab3= st.tabs(["📥 Database", "📊 Prediction Interface","📊 Gr
 with tab1:
     @st.cache_data
     def load_data():
-        df = pd.read_csv(r"C:\Users\nagab\OneDrive\Desktop\ml_1\ml(movie)\tmbd_movies_df.csv")  # your final dataset
+        df = pd.read_csv(r"tmbd_movies_df.csv")  # your final dataset
         return df
 
     df = load_data()
@@ -68,7 +68,7 @@ with tab1:
     col1,col2=st.columns(2)
     with col1:
         if st.button("Best fit line-budget vs revnue"):
-            movies_df=pd.read_csv(r"C:\Users\nagab\OneDrive\Desktop\ml_1\ml(movie)\tmbd_movies_df.csv")
+            movies_df=pd.read_csv(r"tmbd_movies_df.csv")
             sle.regplot(x=movies_df['budget'],y=movies_df['revenue'])
             plt.title("Best fit line-budget vs revnue")
             plt.show()
@@ -115,7 +115,7 @@ with tab3:
         if st.button("🎯 Show Top 5 Genres with Most Movies"):
             st.subheader("Top 5 Genres by Movie Count")
 
-            geners_df=pd.read_csv(r"C:\Users\nagab\OneDrive\Desktop\ml_1\ml(movie)\tmdb_generse.csv")
+            geners_df=pd.read_csv(r"tmdb_generse.csv")
 
             genre_counts=geners_df['name'].value_counts().head(5)
 
@@ -130,7 +130,7 @@ with tab3:
     with col2:
         if st.button("🎯 Profit Distribution"):
 
-            movies_df=pd.read_csv(r"C:\Users\nagab\OneDrive\Desktop\ml_1\ml(movie)\tmbd_movies_df.csv")
+            movies_df=pd.read_csv(r"tmbd_movies_df.csv")
             plt.figure(figsize=(10, 6))
             sle.histplot(movies_df['profit'], bins=50, kde=True)
             plt.title("Profit Distribution")
