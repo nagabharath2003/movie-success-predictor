@@ -28,7 +28,7 @@ def set_background(image_path):
         """,
         unsafe_allow_html=True
     )
-set_background("assets/pexels-photo-3945317.jpeg")
+set_background("assets/pexels-evie-shaffer-1259279-2395253.jpg")
 
 
 st.title("🎬 Movie Success Prediction App")
