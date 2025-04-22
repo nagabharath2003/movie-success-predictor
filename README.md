@@ -2,12 +2,9 @@
 
 [![View App](https://img.shields.io/badge/Streamlit-Live_App-green?logo=streamlit)](https://movie-success-predictor-gvawzufjqfp7ugepcgajot.streamlit.app/)
 
-### 🚀 Live App  
-[Click here to try the Movie Success Predictor](https://movie-success-predictor-gvawzufjqfp7ugepcgajot.streamlit.app/)
+This is an end-to-end machine learning project that predicts whether a movie will be **successful** based on its metadata — such as budget, genres, cast, crew, and more — using data from **The Movie Database (TMDB)**.
 
-This is an end-to-end machine learning project that predicts whether a movie will be **successful** based on its metadata, budget, revenue, genres, and more — using data from **The Movie Database (TMDB)**.
-
-The final output is a **Streamlit web app** that allows users to input movie attributes and get a success prediction in real time.
+The final product is a **Streamlit web app** where users can input movie features and get a prediction in real-time.
 
 ---
 
@@ -17,6 +14,7 @@ The final output is a **Streamlit web app** that allows users to input movie att
 - [Features](#features)
 - [Tech Stack](#tech-stack)
 - [Dataset](#dataset)
+- [Machine Learning](#machine-learning)
 - [Project Structure](#project-structure)
 - [How to Run](#how-to-run)
 - [Demo](#demo)
@@ -27,23 +25,21 @@ The final output is a **Streamlit web app** that allows users to input movie att
 
 ## 🔍 Overview
 
-This project is a complete machine learning pipeline:
+This project follows the complete machine learning workflow:
 
-- 📂 **Data Cleaning**: Merging movie metadata and credits, handling nested JSON columns, removing nulls, and preprocessing.
-- 🧪 **Feature Engineering**: Creating profit, ROI, success classification, extracting top genres, cast, crew, etc.
-- 📊 **EDA & Visualization**: Exploring patterns in successful movies vs. unsuccessful ones.
-- 🤖 **Modeling**: Logistic Regression for binary classification.
-- 🚀 **Deployment**: Interactive Streamlit app for real-time prediction.
+- 📂 Data cleaning and feature engineering
+- 🔍 Exploratory data analysis
+- 🤖 Model building and evaluation
+- 🖥️ Deployment as an interactive web app
 
 ---
 
 ## ✨ Features
 
-- Predict if a movie is likely to be **Successful** or **Not Successful** based on key features.
-- Clean, interactive **Streamlit UI**.
-- Handles real-world messy data (nested JSON, missing values).
-- Clearly structured machine learning pipeline.
-- Feature importance and intuitive visualizations.
+- Predict whether a movie is likely to be **Successful** or **Not Successful**
+- User-friendly interface via **Streamlit**
+- Covers the full ML lifecycle: data cleaning → modeling → deployment
+- Based on real-world dataset with budget, revenue, genres, cast, etc.
 
 ---
 
@@ -61,10 +57,31 @@ This project is a complete machine learning pipeline:
 ## 📁 Dataset
 
 - **Source**: [TMDB 5000 Movie Dataset](https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata)
-- Contains metadata about 5000+ movies: budget, revenue, cast, crew, genres, etc.
+- Includes metadata of over 5000 movies including:
+  - Title, budget, revenue
+  - Genres, cast, crew
+  - Popularity, release date, runtime
 
 ---
 
-## 📂 Project Structure
+## 🤖 Machine Learning
 
-r
+The model used is **Logistic Regression**, a supervised learning algorithm ideal for binary classification (Success vs Not Success).
+
+### 🧠 Key Concepts Used:
+- **Feature Engineering**: Created `profit`, `ROI`, and a `success_class` label.
+- **Model**: `LogisticRegression()` from `sklearn.linear_model`
+- **Train-Test Split**: 80/20
+- **Confusion Matrix**: For visualizing TP, FP, FN, TN
+- **Classification Report**: Precision, Recall, F1-score
+- **ROC Curve & AUC**: For model performance evaluation
+
+### ✅ Evaluation Metrics:
+- **Accuracy**
+- **Precision & Recall**
+- **F1 Score**
+- **AUC (Area Under the Curve)**
+
+---
+
+
