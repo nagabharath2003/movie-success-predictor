@@ -2,6 +2,9 @@
 
 [![View App](https://img.shields.io/badge/Streamlit-Live_App-green?logo=streamlit)](https://movie-success-predictor-gvawzufjqfp7ugepcgajot.streamlit.app/)
 
+### 🚀 Live App  
+[Click here to try the Movie Success Predictor](https://movie-success-predictor-gvawzufjqfp7ugepcgajot.streamlit.app/)
+
 This is an end-to-end machine learning project that predicts whether a movie will be **successful** based on its metadata, budget, revenue, genres, and more — using data from **The Movie Database (TMDB)**.
 
 The final output is a **Streamlit web app** that allows users to input movie attributes and get a success prediction in real time.
