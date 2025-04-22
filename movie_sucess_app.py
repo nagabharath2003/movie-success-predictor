@@ -106,12 +106,12 @@ with tab1:
 
     if st.button("🚀 Predict Success"):
         input_data = {
-            "budget":[ budget],
-            "popularity": [popularity],
-            "runtime": [runtime],
-            'vote_average': [vote_average],
-            'vote_count': [vote_count],
-            'release_year': [release_year]
+            "budget":budget,
+            "popularity": popularity,
+            "runtime": runtime,
+            'vote_average': vote_average,
+            'vote_count': vote_count,
+            'release_year': release_year
         }
 
         input_df = pd.DataFrame([input_data])
