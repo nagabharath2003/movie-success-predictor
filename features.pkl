@@ -1,0 +1,7 @@
+import joblib
+
+# List of features used to train the model
+features = ['budget', 'popularity', 'runtime', 'vote_average', 'vote_count', 'release_year']
+
+# Save the features to features.pkl
+joblib.dump(features, "features.pkl")
