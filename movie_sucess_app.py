@@ -99,13 +99,19 @@ with tab1:
     budget = st.number_input("💰 Budget (in $)", value=0)
     popularity = st.number_input("🔥 Popularity", value=0)
     runtime = st.number_input("⏱️ Runtime (min)", value=0)
+    vote_average = st.number_input("Vote Average")
+    vote_count = st.number_input("Vote Count")
+    release_year = st.number_input("Release Year")
     
 
     if st.button("🚀 Predict Success"):
         input_data = {
-            "budget": budget,
-            "popularity": popularity,
-            "popularity": popularity
+            "budget":[ budget],
+            "popularity": [popularity],
+            "runtime": [runtime],
+            'vote_average': [vote_average],
+            'vote_count': [vote_count],
+            'release_year': [release_year]
         }
 
         input_df = pd.DataFrame([input_data])
