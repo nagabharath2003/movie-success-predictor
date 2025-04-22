@@ -9,6 +9,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report, confusion_matrix,roc_curve
 model=joblib.load("movie_success_model.pkl")
+features = joblib.load("model/features.pkl")
 
 
 st.set_page_config(page_title="Movie Success Predictor", layout="wide")
